@@ -8,9 +8,10 @@
 
 - Command list
   - MSN
-  - IpLookup
+  - Token Info
   - Build Discord Token Grabber
-  - Discord Token Info
+  - Spammer (for any platform)
+  - Video Compressor 
 
 - Misc list
   - Discord Server Invite
