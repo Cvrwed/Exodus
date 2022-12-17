@@ -1,5 +1,5 @@
 <h2 align="center">
-  Exodus Beta 3.0
+  Exodus Beta 3.1
 </h2>
 
 <h3 align="center">
