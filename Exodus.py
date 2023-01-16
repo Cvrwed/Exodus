@@ -11,7 +11,7 @@ from util.rpc import RPC
 from util.x import *
 from util.classes import *
 
-#pacman()
+pacman()
 x()
 RPC()
 Cursor.HideCursor()
