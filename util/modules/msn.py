@@ -33,6 +33,6 @@ def MSN():
         except Exception as e:
             print(f" {MK4}[{MK5}*{MK4}] {Colors.white}Codigo de error - {Colors.red}{e}{Colors.white}")
 
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         MSN()
     
