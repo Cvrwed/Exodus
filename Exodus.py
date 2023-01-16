@@ -10,7 +10,7 @@ from util.rpc import RPC, Not
 from util.x import *
 from util.classes import *
 
-#pacman()
+pacman()
 x()
 RPC()
 if str(query_devices()) != "":
@@ -122,9 +122,7 @@ def Obfuscadores():
         if XH1 == '6':
             Custom()
     
-    except KeyboardInterrupt:
-        Obfuscadores()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         Obfuscadores()
 
 def Grabbers():
