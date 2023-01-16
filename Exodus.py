@@ -10,7 +10,7 @@ from util.rpc import RPC, Not
 from util.x import *
 from util.classes import *
 
-pacman()
+#pacman()
 x()
 RPC()
 if str(query_devices()) != "":
@@ -155,10 +155,12 @@ def Malware():
         System.Title(f"Exodus  ^| Custom  ^| Grabbers")
         System.Clear()
         print(Colorate.Vertical(Colors.red_to_purple, (X9X)))
-        print(f"{MK4}[{MK5}!!!{MK4}] Asegurate de desactivar tu AV, todo es de codigo abierto {MK4}[{MK5}!!!{MK4}]")
-        print(f""" {MK4}[{MK5}1{MK4}]{Colors.white} Villain
-        {MK4}[{MK5}2{MK4}]{Colors.white} Lilith
-        {MK4}[{MK5}3{MK4}]{Colors.white} Back
+        print(f" \n {MK4}[{MK5}!!!{MK4}] {Colors.white}Asegurate de desactivar tu AV, todo es de codigo abierto {MK4}[{MK5}!!!{MK4}]")
+        print(f"""
+ {MK4}[{MK5}1{MK4}]{Colors.white} Villain
+ {MK4}[{MK5}2{MK4}]{Colors.white} Lilith
+
+ {MK4}[{MK5}3{MK4}]{Colors.white} Back
         """)
         malw = input(f" {MK4}[{MK5}*{MK4}]{Colors.white} Choice {Colors.red}> {Colors.white}")
         if malw == '1':
