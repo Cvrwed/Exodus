@@ -31,8 +31,6 @@ def pacman():
         system("pip install requests")
         system("cls")
         system("pip install selenium")
-    except KeyboardInterrupt:
-        pacman()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         pacman()
 
