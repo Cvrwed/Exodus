@@ -1,23 +1,25 @@
-from util.imports import Colors, System, Cursor, Colorate
+from util.imports import Colors, System, Cursor, Colorate, mixer, query_devices
 from util.MixedColors import Colors, MK4, MK5
-
 from util.modules.logintk import Login
 from util.modules.any import AnySpam
 from util.modules.tokeni import DTI
 from util.modules.msn import MSN
 from util.banner import b4nn3r
 
-from util.rpc import RPC
+from util.rpc import RPC, Not
 from util.x import *
 from util.classes import *
 
 #pacman()
 x()
 RPC()
+if str(query_devices()) != "":
+    mixer.init()
+    mixer.music.load(rce("util/etc/uwu.mp3"))
+    mixer.music.play(1)
+Not()
 Cursor.HideCursor()
-
 def Exodus():
-    
     try:
         while True:
             System.Title(f"Exodus Beta")
