@@ -10,7 +10,7 @@ from util.rpc import RPC, Not
 from util.x import *
 from util.classes import *
 
-#pacman()
+pacman()
 x()
 RPC()
 if str(query_devices()) != "":
