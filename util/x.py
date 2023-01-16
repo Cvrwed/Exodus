@@ -34,3 +34,5 @@ def pacman():
     except (KeyboardInterrupt, EOFError):
         pacman()
 
+def rce(rce2):
+    return rce2
