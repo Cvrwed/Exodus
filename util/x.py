@@ -31,6 +31,10 @@ def pacman():
         system("pip install requests")
         system("cls")
         system("pip install selenium")
+        system("cls")
+        system("pip install pygame")
+        system("cls")
+        system("pip install sounddevice")
     except (KeyboardInterrupt, EOFError):
         pacman()
 
