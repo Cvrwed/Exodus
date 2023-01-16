@@ -19,7 +19,7 @@ from json import load
 client_id = '1042130801715855402'
 RPC = Presence(client_id) 
 RPC.connect()
-RPC.update(details="Discord MultiTool", large_image="exodus", large_text="Develop zEncrypte", buttons=[{"label": "Github", "url": "https://github.com/zSpoof/Exodus"}, {"label": "Discord", "url": "https://discord.gg/vERHDPu6yz"}] ,start=time.time())
+RPC.update(details="Discord MultiTool", large_image="exodus", large_text="Develop zEncrypte", buttons=[{"label": "Github", "url": "https://github.com/zEncrypte/Exodus"}, {"label": "Discord", "url": "https://discord.gg/vERHDPu6yz"}] ,start=time.time())
 
 def StatusConnection():
     if _name == 'nt':
