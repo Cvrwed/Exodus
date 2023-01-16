@@ -8,5 +8,8 @@ from random import randint
 from selenium import webdriver
 from subprocess import run
 import sys
+from plyer import notification
 from time import sleep, time
 from sys import stdout
+from pygame import mixer
+from sounddevice import query_devices
