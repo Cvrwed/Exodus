@@ -27,7 +27,7 @@ def DTI():
         us = us.json()
         print(f" {MK4}[{Colors.red}+{MK4}] {Colors.light_green}Token valido !\n")
         X9 = f"""
-    ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     Usuario: {us['username']}#{us['discriminator']}
     Telefono: {us['phone']}
     ID: {us['id']}
@@ -36,11 +36,9 @@ def DTI():
     Lenguaje: {us['locale']}
     Servidores: {len(srvs)}
     Amigos: {len([input for input in friends if input['type'] == 1])}
-    ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         """[1:]
-        print(Colorate.Vertical(Colors.DynamicMIX((MK1, Colors.purple)), (X9)))
+        print(Colorate.Vertical(Colors.DynamicMIX((Colors.red, Colors.blue)), (X9)))
         input(f" {MK4}[{MK5}*{MK4}] {Colors.white}Presiona enter para continuar...")
-    except KeyboardInterrupt:
-        DTI()
-    except EOFError:
+    except (KeyboardInterrupt, EOFError):
         DTI()
