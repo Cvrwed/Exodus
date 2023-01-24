@@ -133,8 +133,8 @@ def Grabbers():
         print(f""" {MK4}[{MK5}1{MK4}]{Colors.white} Hazard
  {MK4}[{MK5}2{MK4}]{Colors.white} Luna
  {MK4}[{MK5}3{MK4}]{Colors.white} W4sp
-
- {MK4}[{MK5}4{MK4}]{Colors.white} Back
+ {MK4}[{MK5}4{MK4}]{Colors.white} Simple
+ {MK4}[{MK5}5{MK4}]{Colors.white} Back
         """)
 
         grabber = input(f" {MK4}[{MK5}*{MK4}]{Colors.white} Choice {Colors.red}> {Colors.white}")
@@ -144,6 +144,8 @@ def Grabbers():
             Luna()
         if grabber == '3':
             W4sp()
+        if grabber == '4':
+            Simple()
         
     except (KeyboardInterrupt, EOFError):
         Grabbers()
