@@ -2,10 +2,12 @@
 
 ## Install
 ```bash
-download python 3.9x
+download python
 ```
 
 ## After
 ```bash
+pip install pygame
+pip install sounddevice
 py exodus.py
 ```
